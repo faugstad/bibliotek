@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# local data — created from data/seed.json on first read
+/data/db.json
+
 # next.js
 /.next/
 /out/

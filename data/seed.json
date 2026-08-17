@@ -1,0 +1,128 @@
+{
+  "books": [
+    {
+      "id": "book-1",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "isbn": "978-0-7475-3269-9",
+      "year": 1997,
+      "copies": 4
+    },
+    {
+      "id": "book-2",
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "isbn": "978-0-618-64015-7",
+      "year": 1954,
+      "copies": 2
+    },
+    {
+      "id": "book-3",
+      "title": "1984",
+      "author": "George Orwell",
+      "isbn": "978-0-452-28423-4",
+      "year": 1949,
+      "copies": 3
+    },
+    {
+      "id": "book-4",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "isbn": "978-0-14-143951-8",
+      "year": 1813,
+      "copies": 2
+    },
+    {
+      "id": "book-5",
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "isbn": "978-0-15-601219-5",
+      "year": 1943,
+      "copies": 1
+    },
+    {
+      "id": "book-6",
+      "title": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "isbn": "978-0-385-50420-1",
+      "year": 2003,
+      "copies": 2
+    },
+    {
+      "id": "book-7",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "isbn": "978-0-06-112008-4",
+      "year": 1960,
+      "copies": 3
+    },
+    {
+      "id": "book-8",
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "isbn": "978-0-06-231500-7",
+      "year": 1988,
+      "copies": 1
+    }
+  ],
+  "borrowers": [
+    {
+      "id": "borrower-1",
+      "name": "Marit Hoel",
+      "email": "marit.hoel@example.no",
+      "role": "borrower"
+    },
+    {
+      "id": "borrower-2",
+      "name": "Jonas Berge",
+      "email": "jonas.berge@example.no",
+      "role": "borrower"
+    },
+    {
+      "id": "borrower-3",
+      "name": "Aisha Rahman",
+      "email": "aisha.rahman@example.no",
+      "role": "borrower"
+    },
+    {
+      "id": "borrower-4",
+      "name": "Ingrid Sæther",
+      "email": "ingrid.sather@example.no",
+      "role": "librarian"
+    }
+  ],
+  "loans": [
+    {
+      "id": "loan-1",
+      "bookId": "book-5",
+      "borrowerId": "borrower-1",
+      "borrowedAt": "2026-07-06T09:15:00.000Z",
+      "dueAt": "2026-08-03T09:15:00.000Z",
+      "returnedAt": null
+    },
+    {
+      "id": "loan-2",
+      "bookId": "book-2",
+      "borrowerId": "borrower-1",
+      "borrowedAt": "2026-08-10T11:40:00.000Z",
+      "dueAt": "2026-09-07T11:40:00.000Z",
+      "returnedAt": null
+    },
+    {
+      "id": "loan-3",
+      "bookId": "book-1",
+      "borrowerId": "borrower-1",
+      "borrowedAt": "2026-06-01T13:05:00.000Z",
+      "dueAt": "2026-06-29T13:05:00.000Z",
+      "returnedAt": "2026-06-20T10:20:00.000Z"
+    },
+    {
+      "id": "loan-4",
+      "bookId": "book-8",
+      "borrowerId": "borrower-2",
+      "borrowedAt": "2026-08-01T15:30:00.000Z",
+      "dueAt": "2026-08-29T15:30:00.000Z",
+      "returnedAt": null
+    }
+  ]
+}

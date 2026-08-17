@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Bibliotek">
+  <rect width="24" height="24" rx="5.5" fill="#bb4d00" />
+  <g fill="#fffbeb" transform="translate(1.8 1.8) scale(0.85)">
+    <rect x="4.2" y="5.4" width="3.6" height="14.1" rx="1.15" />
+    <rect x="9" y="3.4" width="3.6" height="16.1" rx="1.15" />
+    <rect x="13.8" y="6.4" width="3.6" height="13.1" rx="1.15" transform="rotate(12 15.6 19.5)" />
+    <rect x="3.2" y="18.4" width="17.6" height="2.2" rx="1.1" />
+  </g>
+</svg>
