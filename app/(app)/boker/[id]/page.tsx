@@ -71,7 +71,7 @@ export default async function BookPage({
   const nextDueAt = activeLoans
     .map((loan) => loan.dueAt)
     .sort((a, b) => a.localeCompare(b))
-    .at(0);
+    .at(0)!;
 
   return (
     <>
@@ -122,18 +122,16 @@ export default async function BookPage({
                 <span className="tabular-nums">{book.onLoan}</span>
               )}
             </DetailRow>
-            {nextDueAt ? (
-              <DetailRow label="Første innlevering">
-                <span className="inline-flex items-center gap-1.5">
-                  <HugeiconsIcon
-                    icon={Calendar03Icon}
-                    strokeWidth={2}
-                    className="size-4 text-muted-foreground"
-                  />
-                  {formatDate(nextDueAt)}
-                </span>
-              </DetailRow>
-            ) : null}
+            <DetailRow label="Første innlevering">
+              <span className="inline-flex items-center gap-1.5">
+                <HugeiconsIcon
+                  icon={Calendar03Icon}
+                  strokeWidth={2}
+                  className="size-4 text-muted-foreground"
+                />
+                {formatDate(nextDueAt)}
+              </span>
+            </DetailRow>
           </dl>
         </CardContent>
         <CardFooter className="flex-wrap gap-3">
