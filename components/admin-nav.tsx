@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 const views = [
   { href: "/admin", label: "Aktive lån" },
-  { href: "/admin/laanere", label: "Lånere" },
+  { href: "/admin/brukere", label: "Brukere" },
 ];
 
 /** The two halves of the desk work, switched between without leaving the area. */

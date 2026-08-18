@@ -22,7 +22,7 @@ npm run reset-data # tilbake til utgangspunktet i data/seed.json
 | `/boker/[id]` | Detaljer om én tittel, og knappen som låner den |
 | `/mine-laan` | Lånene dine, med frister, status og gebyr |
 | `/admin` | Alle aktive lån, med registrering av retur |
-| `/admin/laanere` | Låneregisteret, og skjema for å legge inn en ny låner |
+| `/admin/brukere` | Brukerregisteret — alle lånere og bibliotekarer |
 | `/logg-inn` | Velg hvem du vil bruke systemet som |
 | `/stil` | Stilguiden — alle komponenter og tilstander på én side |
 

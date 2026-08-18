@@ -137,7 +137,7 @@ export async function registerBorrowerAction(
     };
   }
 
-  revalidatePath("/admin/laanere");
+  revalidatePath("/admin/brukere");
   revalidatePath("/logg-inn");
-  redirect(`/admin/laanere?ny=${encodeURIComponent(borrower.id)}`);
+  redirect(`/admin/brukere?ny=${encodeURIComponent(borrower.id)}`);
 }

@@ -133,7 +133,7 @@ const books: {
 const navigation = [
   { label: "Bøker", current: true },
   { label: "Utlån", current: false },
-  { label: "Lånere", current: false },
+  { label: "Brukere", current: false },
   { label: "Innstillinger", current: false },
 ];
 

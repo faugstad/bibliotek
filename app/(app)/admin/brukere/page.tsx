@@ -6,7 +6,6 @@ import { AdminNav } from "@/components/admin-nav";
 import { LibrarianRequired } from "@/components/librarian-required";
 import { PageHeading } from "@/components/page-heading";
 import { ColumnHead, IDENTITY_CELL, RecordCell } from "@/components/record-cell";
-import { RegisterBorrowerForm } from "@/components/register-borrower-form";
 import { RoleBadge } from "@/components/role-badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
@@ -32,18 +31,18 @@ import { getBorrowers, getLoans } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Lånere – Bibliotek",
-  description: "Låneregisteret, og skjema for å registrere en ny låner",
+  title: "Brukere – Bibliotek",
+  description: "Alle som er registrert i systemet, og hvor mange bøker de har ute",
 };
 
 export default async function BorrowersPage({
   searchParams,
-}: PageProps<"/admin/laanere">) {
+}: PageProps<"/admin/brukere">) {
   const user = await requireBorrower();
   if (!isLibrarian(user)) {
     return (
       <>
-        <PageHeading title="Lånere" />
+        <PageHeading title="Brukere" />
         <LibrarianRequired user={user} />
       </>
     );
@@ -58,8 +57,9 @@ export default async function BorrowersPage({
 
   return (
     <>
-      <PageHeading title="Lånere">
+      <PageHeading title="Brukere">
         Alle som er registrert i systemet, og hvor mange bøker de har ute.
+        Registeret rommer både lånere og bibliotekarer.
       </PageHeading>
       <AdminNav />
 
@@ -68,7 +68,7 @@ export default async function BorrowersPage({
           <HugeiconsIcon icon={CheckmarkCircle02Icon} strokeWidth={2} />
           <AlertTitle>{enrolled.name} er registrert</AlertTitle>
           <AlertDescription>
-            Låneren kan låne bøker med én gang, og ligger nå i listen over hvem
+            Brukeren kan låne bøker med én gang, og ligger nå i listen over hvem
             du kan bruke systemet som.
           </AlertDescription>
         </Alert>
@@ -76,7 +76,7 @@ export default async function BorrowersPage({
 
       <Card>
         <CardHeader>
-          <CardTitle>Låneregisteret</CardTitle>
+          <CardTitle>Brukerregisteret</CardTitle>
           <CardDescription>
             Sortert slik de ble lagt inn, med bibliotekarer merket.
           </CardDescription>
@@ -126,10 +126,6 @@ export default async function BorrowersPage({
           </Table>
         </CardContent>
       </Card>
-
-      <div className="mt-6">
-        <RegisterBorrowerForm />
-      </div>
     </>
   );
 }
