@@ -88,10 +88,7 @@ export default async function MyLoansPage() {
                 <TableRow className="hover:bg-transparent">
                   <ColumnHead className="pl-(--card-spacing)">Tittel</ColumnHead>
                   <ColumnHead>Frist</ColumnHead>
-                  <ColumnHead>Status</ColumnHead>
-                  <ColumnHead className="pr-(--card-spacing) text-right">
-                    Gebyr
-                  </ColumnHead>
+                  <ColumnHead className="pr-(--card-spacing)">Status</ColumnHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -111,17 +108,8 @@ export default async function MyLoansPage() {
                     <TableCell className="py-3 tabular-nums">
                       {formatDate(loan.dueAt)}
                     </TableCell>
-                    <TableCell className="py-3">
+                    <TableCell className="py-3 pr-(--card-spacing)">
                       <LoanStatusCell loan={loan} />
-                    </TableCell>
-                    <TableCell className="py-3 pr-(--card-spacing) text-right tabular-nums">
-                      {loan.lateFee > 0 ? (
-                        <span className="font-medium">
-                          {formatKroner(loan.lateFee)}
-                        </span>
-                      ) : (
-                        <span className="text-muted-foreground">—</span>
-                      )}
                     </TableCell>
                   </TableRow>
                 ))}
