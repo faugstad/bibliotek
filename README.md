@@ -23,6 +23,7 @@ npm run reset-data # tilbake til utgangspunktet i data/seed.json
 | `/mine-laan` | Lånene dine, med frister, status og gebyr |
 | `/admin` | Alle aktive lån, med registrering av retur |
 | `/admin/brukere` | Brukerregisteret — alle lånere og bibliotekarer |
+| `/admin/innstillinger` | Innstillinger for demoen, og tilbakestilling av datagrunnlaget |
 | `/logg-inn` | Velg hvem du vil bruke systemet som |
 | `/stil` | Stilguiden — alle komponenter og tilstander på én side |
 

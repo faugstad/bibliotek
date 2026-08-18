@@ -12,7 +12,12 @@ import {
   isLibrarian,
   SIGNED_OUT,
 } from "@/lib/auth";
-import { createBorrower, getBorrower } from "@/lib/db";
+import {
+  createBorrower,
+  DEMO_RESET_ENABLED,
+  getBorrower,
+  resetDatabase,
+} from "@/lib/db";
 import { errorSlug } from "@/lib/errors";
 import type { RegisterState } from "@/lib/forms";
 import { borrowBook, registerReturn } from "@/lib/loans";
@@ -56,6 +61,31 @@ export async function returnLoanAction(formData: FormData) {
 
   revalidateLoanViews(result.loan.bookId);
   redirect("/admin");
+}
+
+/**
+ * Puts the demo back to the state in `data/seed.json`. Every loan, return and
+ * enrolment registered since is discarded.
+ *
+ * This is demo plumbing, not desk work — but it is destructive, so it sits
+ * behind the same librarian check as the rest of the administration, and behind
+ * {@link DEMO_RESET_ENABLED} on top of that.
+ */
+export async function resetDemoDataAction() {
+  if (!DEMO_RESET_ENABLED) redirect("/admin/innstillinger");
+
+  const actor = await getCurrentBorrower();
+  if (!actor || !isLibrarian(actor)) redirect("/logg-inn");
+
+  await resetDatabase();
+
+  revalidateLoanViews();
+  // Every title at once — a reset changes availability across the catalogue,
+  // not just on the one book a borrow would have touched.
+  revalidatePath("/boker/[id]", "page");
+  revalidatePath("/admin/brukere");
+  revalidatePath("/logg-inn");
+  redirect("/admin/innstillinger?tilbakestilt=1");
 }
 
 /* ----------------------------------------------------------------- who am I --- */

@@ -152,6 +152,33 @@ export async function createBorrower(input: NewBorrower): Promise<Borrower | nul
 }
 
 /**
+ * Whether the demo data may be reset from the interface.
+ *
+ * On in development. Off in production unless deliberately switched on with
+ * `ALLOW_DEMO_RESET=true` — deployed, this button lets any visitor wipe the
+ * demo for everyone else, so it is not something to ship by accident.
+ */
+export const DEMO_RESET_ENABLED =
+  process.env.NODE_ENV !== "production" ||
+  process.env.ALLOW_DEMO_RESET === "true";
+
+/**
+ * Puts the working copy back to `data/seed.json`.
+ *
+ * `scripts/reset-data.mjs` deletes the file and lets the next read rebuild it.
+ * That is fine from a cold terminal, but not from a running server: it goes
+ * through the same queue as everything else here, so a reset cannot land in the
+ * middle of a borrow and leave it writing into a database that no longer
+ * matches what its precondition saw.
+ */
+export async function resetDatabase(): Promise<void> {
+  return enqueue(async () => {
+    const seed = JSON.parse(await readFile(SEED_FILE, "utf8")) as Database;
+    await write(seed);
+  });
+}
+
+/**
  * Stamps a loan as returned. Returns the updated loan, or `null` if no loan has
  * that id. A loan that was already returned keeps its original return date.
  */
